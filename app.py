@@ -139,7 +139,7 @@ warnings.filterwarnings("ignore", message="NLTK punkt already downloaded")
 #     print("pysqlite3 not available, using default sqlite3")
 
 GOOGLE_API_KEY = "AIzaSyCXkfIDviAtj0bfJQrlEQb8uUHWrvtJkbU"
-Imagen_API_KEY = "AIzaSyB2A6pub0SoEHCv12nCLRj3kT5RPZNtsTc"
+Imagen_API_KEY = "AIzaSyCXkfIDviAtj0bfJQrlEQb8uUHWrvtJkbU"
 # genai.configure(api_key=GOOGLE_API_KEY)  # Commented out due to linter/runtime error: not exported in some versions
 
 # **Voice Functionality Helper Functions**
@@ -6502,3 +6502,4 @@ Provide a comprehensive answer that takes into account information from all the 
 
 if __name__ == '__main__':
     main()
+
