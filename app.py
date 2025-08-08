@@ -1,4 +1,3 @@
-
 import os
 os.environ["LITELLM_MODEL_PROVIDER"] = "gemini"
 os.environ["GEMINI_API_KEY"] = "AIzaSyCXkfIDviAtj0bfJQrlEQb8uUHWrvtJkbU"
@@ -139,7 +138,7 @@ warnings.filterwarnings("ignore", message="NLTK punkt already downloaded")
 #     print("pysqlite3 not available, using default sqlite3")
 
 GOOGLE_API_KEY = "AIzaSyCXkfIDviAtj0bfJQrlEQb8uUHWrvtJkbU"
-Imagen_API_KEY = "AIzaSyCXkfIDviAtj0bfJQrlEQb8uUHWrvtJkbU"
+Imagen_API_KEY = "AIzaSyB2A6pub0SoEHCv12nCLRj3kT5RPZNtsTc"
 # genai.configure(api_key=GOOGLE_API_KEY)  # Commented out due to linter/runtime error: not exported in some versions
 
 # **Voice Functionality Helper Functions**
@@ -502,21 +501,21 @@ def sidebar_accordion():
                                 use_container_width=True
                             )
 
-                    # with col2:
-                    #     # Clear logs button
-                    #     if st.button(
-                    #         "🗑️ Clear All Logs",
-                    #         help="Permanently delete all log entries",
-                    #         use_container_width=True,
-                    #         type="secondary"
-                    #     ):
-                    #         try:
-                    #             os.remove(csv_filename)
-                    #             st.success("✅ All logs cleared successfully!")
-                    #             time.sleep(1)
-                    #             st.rerun()
-                    #         except Exception as e:
-                    #             st.error(f"❌ Error clearing logs: {e}")
+                    with col2:
+                        # Clear logs button
+                        if st.button(
+                            "🗑️ Clear All Logs",
+                            help="Permanently delete all log entries",
+                            use_container_width=True,
+                            type="secondary"
+                        ):
+                            try:
+                                os.remove(csv_filename)
+                                st.success("✅ All logs cleared successfully!")
+                                time.sleep(1)
+                                st.rerun()
+                            except Exception as e:
+                                st.error(f"❌ Error clearing logs: {e}")
 
                     # Show recent interactions
                     if len(df) > 0:
@@ -1078,7 +1077,7 @@ def process_multiple_media_files(uploaded_files, model, temperature, top_p, max_
 
     for file in uploaded_files:
         ext = os.path.splitext(file.name)[1].lower()
-        if ext in ['.pdf', '.docx', '.txt', '.pptx', '.xml', '.json', '.yaml', '.yml', '.h', '.csv', '.xlsx', '.xls']:
+        if ext in ['.pdf', '.docx', '.txt', '.ppt', '.pptx', '.xml', '.json', '.yaml', '.yml', '.h', '.csv', '.xlsx', '.xls', '.md', '.dat']:
             file_groups['text'].append(file)
         elif ext in ['.jpg', '.jpeg', '.png', '.gif', '.mp4', '.wav']:
             file_groups['media'].append(file)
@@ -2290,7 +2289,7 @@ def main():
             "Website URL:",
             placeholder="https://example.com",
             key="url_input",
-            height=40
+            height=70
         )
         # Process URL button
         if st.button("🔍 Process URL", type="primary", key="process_url_btn"):
@@ -6502,4 +6501,5 @@ Provide a comprehensive answer that takes into account information from all the 
 
 if __name__ == '__main__':
     main()
+
 
