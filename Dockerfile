@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     tesseract-ocr \
     libmagic1 \
+    libegl1-mesa \
     libgl1-mesa-glx \
     libglib2.0-0 \
     poppler-utils \
